@@ -1,6 +1,4 @@
-# fosscord-git-analysis
-
-dashboard for contributor's stats
+# Github-Stats-Backend
 
 ## Usage:
 
