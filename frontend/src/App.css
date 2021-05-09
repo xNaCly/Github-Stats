@@ -1,0 +1,51 @@
+:root {
+	/*primary nord*/
+	--primary: #2e3440;
+	--secondary: #3b4252;
+	--third: #434c5e;
+	--forth: #4c566a;
+	--primary-hover: rgb(46, 52, 64, 0.8);
+	--secondary-hover: rgb(60, 67, 83, 0.8);
+	--third-hover: rgb(67, 76, 94, 0.8);
+	--forth-hover: rgb(76, 86, 106, 0.8);
+	/*text nord*/
+	--text1: #d8dee9;
+	--text2: #e5e9f0;
+	--text3: #eceff4;
+	--text4: #949eb4;
+	--text1-hover: rgb(216, 222, 233, 0.8);
+	--text2-hover: rgb(229, 233, 240, 0.8);
+	--text3-hover: rgb(236, 239, 244, 0.8);
+	--text4-hover: rgb(148, 158, 180, 0.8);
+	/*frost from nord*/
+	--frost1: #8fbcbb;
+	--frost2: #88c0d0;
+	--frost3: #81a1c1;
+	--frost4: #5e81ac;
+	--frost5: #5e81ac0e;
+	--frost1-hover: rgb(143, 188, 187, 0.8);
+	--frost2-hover: rgb(136, 192, 208, 0.8);
+	--frost3-hover: rgb(129, 161, 193, 0.8);
+	--frost4-hover: rgb(94, 129, 172, 0.8);
+	--frost5-hover: rgba(94, 129, 172, 0.055);
+	/* aurora */
+	--aur1: #bf616a;
+	--aur2: #d08770;
+	--aur3: #ebcb8b;
+	--aur4: #a3be8c;
+	--aur5: #b48ead;
+	--aur1-hover: rgb(191, 97, 106, 0.8);
+	--aur2-hover: rgb(208, 135, 112, 0.8);
+	--aur3-hover: rgb(235, 203, 139, 0.8);
+	--aur4-hover: rgb(164, 191, 141, 0.8);
+	--aur5-hover: rgb(180, 142, 173, 0.8);
+}
+
+* > body {
+	font-family: "Rubik", sans-serif !important;
+	margin: 0;
+	font-size: 16pt !important;
+	box-sizing: border-box;
+	background-color: var(--primary) !important;
+	color: var(--text3) !important;
+}

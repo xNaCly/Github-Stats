@@ -1,0 +1,4 @@
+{
+	"db": "mongodb+srv://xnacly:bxWjgEDwrRLqo0mp@cluster0.e0khx.mongodb.net/github?retryWrites=true&w=majority",
+	"port": 1234
+}

@@ -1,0 +1,9 @@
+{
+	"short_name": "fosscord git analytics",
+	"name": "fosscord git analytics",
+	"icons": [],
+	"start_url": ".",
+	"display": "standalone",
+	"theme_color": "#000000",
+	"background_color": "#ffffff"
+}
