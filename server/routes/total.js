@@ -4,7 +4,10 @@ const Github = require("../github/github");
 const db = require("../github/db");
 
 router.get("/:orgaName", async (req, res) => {
-	let github = new Github(req.params.orgaName, req.query.token);
+	const token = req.header("Authorization");
+	if (!token) return res.status(401).send({ error: "missing auth header" });
+	let github = new Github(req.params.orgaName, token);
+
 	let total = await db.data.orgas({ name: req.params.orgaName }).get();
 	if (!total) {
 		total = await github.getOrgStats();
@@ -19,7 +22,9 @@ router.get("/:orgaName", async (req, res) => {
 });
 
 router.get("/:orgaName/:repoName", async (req, res) => {
-	let github = new Github(req.params.orgaName, req.query.token);
+	const token = req.header("Authorization");
+	if (!token) return res.status(401).send({ error: "missing auth header" });
+	let github = new Github(req.params.orgaName, token);
 
 	let repo = await db.data.orgas({ name: req.params.orgaName }).repos({ name: req.params.repoName }).get();
 	if (!repo) {
