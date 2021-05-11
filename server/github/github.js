@@ -1,4 +1,5 @@
 const fetch = require("node-fetch");
+require("missing-native-js-functions");
 
 class Github {
 	constructor(organisationName, auth) {
@@ -11,7 +12,10 @@ class Github {
 	}
 
 	async makeRequest(path) {
-		let res = await fetch(path, { headers: { Authorization: `Basic ${this.auth}` } });
+		let res = await fetch(path, {
+			headers: { Authorization: `Token ${this.auth}`, "User-Agent": this.organisationName },
+		});
+		if (res.status !== 200) console.log(path, res.status);
 		res = await res.json();
 		return res;
 	}
@@ -47,8 +51,7 @@ class Github {
 		}
 		return contributors;
 	}
-	async getOrgStats() {
-		const repos = await this.getAllRepoNames();
+	async getOrgStats(repos) {
 		let raw_contr = [];
 		let contributors = {};
 		for (let _repo of repos) {
@@ -69,7 +72,7 @@ class Github {
 				cont.deletions += con.deletions;
 				cont.commits += con.commits;
 				cont.realAdditions = cont.additions - cont.deletions;
-				cont.additionsPerCommit = cont.additions / cont.commits;
+				cont.additionsPerCommit = Math.round(cont.additions / cont.commits);
 			}
 		}
 		return contributors;

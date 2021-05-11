@@ -1,3 +1,8 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
 :root {
 	/*primary nord*/
 	--primary: #2e3440;
@@ -45,7 +50,80 @@
 	font-family: "Rubik", sans-serif !important;
 	margin: 0;
 	font-size: 16pt !important;
-	box-sizing: border-box;
 	background-color: var(--primary) !important;
 	color: var(--text3) !important;
+}
+a {
+	text-decoration: none;
+	padding-bottom: 0.01rem;
+	border-bottom: 1px solid var(--frost2);
+	color: var(--frost2);
+}
+a:hover {
+	border-bottom: 1px solid var(--frost2-hover);
+	color: var(--frost2-hover);
+}
+.navbar {
+	background-color: var(--secondary);
+	padding: 1rem;
+}
+.user_card_container {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+}
+.user_card {
+	font-size: 1.25rem;
+	background-color: var(--secondary);
+	width: 15vw;
+	/* height: 15vw; */
+	padding: 1rem;
+	margin: 1rem;
+	border-radius: 0.5rem;
+	min-width: 10vw;
+	min-height: fit-content;
+	word-wrap: break-word;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	flex-grow: 1;
+}
+.user_card_title {
+	margin-bottom: 1rem;
+}
+.user_card_content {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+.user_card_stat_content {
+	color: var(--text4);
+	font-size: 1rem;
+	margin-bottom: 0.5rem;
+}
+.user_card_href {
+	top: 0.25rem;
+	font-size: 0.95rem;
+}
+.user_card_stat_header {
+	color: var(--text1);
+}
+@media screen and (max-width: 600px) {
+	.user_card {
+		width: 80vw;
+		/* height: 30vw; */
+	}
+}
+@media screen and (max-width: 1000px) {
+	.user_card {
+		width: 40vw;
+		/* height: 30vw; */
+	}
+}
+@media screen and (max-width: 1400px) {
+	.user_card {
+		width: 30vw;
+		/* height: 30vw; */
+	}
 }
