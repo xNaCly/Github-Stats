@@ -33,6 +33,10 @@
 	--frost3-hover: rgb(129, 161, 193, 0.8);
 	--frost4-hover: rgb(94, 129, 172, 0.8);
 	--frost5-hover: rgba(94, 129, 172, 0.055);
+	--frost1-hard-hover: rgb(143, 188, 187, 0.2);
+	--frost2-hard-hover: rgb(136, 192, 208, 0.2);
+	--frost3-hard-hover: rgb(129, 161, 193, 0.2);
+	--frost4-hard-hover: rgb(94, 129, 172, 0.2);
 	/* aurora */
 	--aur1: #bf616a;
 	--aur2: #d08770;
@@ -44,6 +48,11 @@
 	--aur3-hover: rgb(235, 203, 139, 0.8);
 	--aur4-hover: rgb(164, 191, 141, 0.8);
 	--aur5-hover: rgb(180, 142, 173, 0.8);
+	--aur1-hard-hover: rgb(191, 97, 106, 0.1);
+	--aur2-hard-hover: rgb(208, 135, 112, 0.1);
+	--aur3-hard-hover: rgb(235, 203, 139, 0.1);
+	--aur4-hard-hover: rgb(164, 191, 141, 0.1);
+	--aur5-hard-hover: rgb(180, 142, 173, 0.1);
 }
 
 * > body {
@@ -56,16 +65,82 @@
 a {
 	text-decoration: none;
 	padding-bottom: 0.01rem;
-	border-bottom: 1px solid var(--frost2);
-	color: var(--frost2);
+	border-bottom: 1px solid var(--frost3);
+	color: var(--frost3);
 }
 a:hover {
-	border-bottom: 1px solid var(--frost2-hover);
-	color: var(--frost2-hover);
+	border-bottom: 1px solid var(--frost3-hover);
+	color: var(--frost3-hover);
 }
 .navbar {
 	background-color: var(--secondary);
 	padding: 1rem;
+	margin-bottom: 2rem;
+}
+.header {
+	margin: 2rem;
+	text-align: center;
+}
+.filter_container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+button {
+	background-color: var(--frost3);
+	color: var(--text3);
+	border-radius: 0.5rem;
+	padding: 0.75rem;
+	border: none;
+	margin: 1rem;
+	cursor: pointer;
+}
+button.danger {
+	background-color: var(--aur1);
+}
+button:hover {
+	color: var(--text3-hover);
+	background-color: var(--frost3-hover);
+}
+button.warning {
+	background-color: var(--aur3);
+}
+button.success {
+	background-color: var(--aur4);
+}
+button.danger:hover {
+	background-color: var(--aur1-hover);
+}
+button.warning:hover {
+	background-color: var(--aur3-hover);
+}
+button.success:hover {
+	background-color: var(--aur4-hover);
+}
+.alert {
+	background-color: var(--frost3-hard-hover);
+	border: 0.1rem solid var(--frost3);
+	padding: 1.25rem;
+	margin: 1rem;
+	border-radius: 0.5rem;
+	color: var(--frost3);
+	user-select: none;
+}
+.alert.danger {
+	background-color: var(--aur1-hard-hover);
+	border: 0.1rem solid var(--aur1);
+	color: var(--aur1);
+}
+.alert.warning {
+	background-color: var(--aur3-hard-hover);
+	border: 0.1rem solid var(--aur3);
+	color: var(--aur3);
+}
+.alert.success {
+	background-color: var(--aur4-hard-hover);
+	border: 0.1rem solid var(--aur4);
+	color: var(--aur4);
 }
 .user_card_container {
 	display: flex;
