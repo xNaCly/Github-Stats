@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 
 import Orga from "./components/sites/Orga";
-import Repo from "./components/sites/Repo";
+// import Repo from "./components/sites/Repo";
 import LandingPage from "./components/sites/LandingPage";
 import Navbar from "./components/utils/Navbar";
 
