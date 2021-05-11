@@ -6,10 +6,10 @@ const db = require("../github/db");
 router.get("/:orgaName", async (req, res) => {
 	const token = req.header("Authorization");
 	res.append("Access-Control-Allow-Origin", ["*"]);
-	if (!token) return res.status(401).send({ error: "missing auth header" });
+	let total = await db.data.orgas({ name: req.params.orgaName }).get();
+	if (!token) return res.send(total);
 	let github = new Github(req.params.orgaName, token);
 
-	let total = await db.data.orgas({ name: req.params.orgaName }).get();
 	if (!total) {
 		const repoNames = await github.getAllRepoNames();
 		total = await github.getOrgStats(repoNames);
