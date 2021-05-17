@@ -59,7 +59,7 @@ function Orga({ match }) {
 						onClick={() => {
 							updateFilter("commits");
 						}}>
-						Filter by commits
+						Sort by commits
 					</button>
 					<button
 						className="filter_button"
@@ -67,7 +67,7 @@ function Orga({ match }) {
 						onClick={() => {
 							updateFilter("additions");
 						}}>
-						Filter by additions
+						Sort by additions
 					</button>
 					<button
 						className="filter_button"
@@ -75,7 +75,7 @@ function Orga({ match }) {
 						onClick={() => {
 							updateFilter("deletions");
 						}}>
-						Filter by deletions
+						Sort by deletions
 					</button>
 					<button
 						className="filter_button"
@@ -83,7 +83,7 @@ function Orga({ match }) {
 						onClick={() => {
 							updateFilter("additionsPerCommit");
 						}}>
-						Filter by additionsPerCommit
+						Sort by additionsPerCommit
 					</button>
 				</div>
 			</div>
