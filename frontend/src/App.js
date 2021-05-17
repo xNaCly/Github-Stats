@@ -11,7 +11,7 @@ function App() {
 	return (
 		<Router>
 			<Navbar></Navbar>
-			<Route path="/" component={LandingPage}></Route>
+			<Route path="/" exact component={LandingPage}></Route>
 			<Route path="/orga/:orgaName" component={Orga}></Route>
 			{/* <Route path="/repo/:orgaName/:repoName" component={Repo}></Route> */}
 		</Router>

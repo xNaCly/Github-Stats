@@ -7,7 +7,7 @@ import Error from "../utils/Error";
 function Orga({ match }) {
 	const { orgaName } = match.params;
 	const [contributors, updateContributors] = useState([]);
-	const [activeFilter, updateFilter] = useState("commits");
+	const [activeFilter, updateFilter] = useState();
 
 	function sortContributors(type) {
 		updateContributors([
@@ -27,7 +27,11 @@ function Orga({ match }) {
 			for (const x in res) {
 				contr.push({ name: x, ...res[x] });
 			}
-			updateContributors(contr);
+			updateContributors(
+				contr.sort((a, b) => {
+					return b["commits"] - a["commits"];
+				})
+			);
 		};
 		req();
 	}, []);
