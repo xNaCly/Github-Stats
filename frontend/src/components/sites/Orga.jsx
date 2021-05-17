@@ -7,9 +7,16 @@ import Error from "../utils/Error";
 function Orga({ match }) {
 	const { orgaName } = match.params;
 	const [contributors, updateContributors] = useState([]);
-	const [activeFilter, updateFilter] = useState();
+	const [activeFilter, updateFilter] = useState("");
 
 	function sortContributors(type) {
+		try {
+			const types = ["commits", "additions", "deletions", "additionsPerCommit"].filter((e) => e !== type);
+			for (let t of types) {
+				document.getElementById(t).classList.remove("active");
+			}
+			document.getElementById(type).classList.add("active");
+		} catch {}
 		updateContributors([
 			...contributors.sort((a, b) => {
 				return b[type] - a[type];
@@ -32,6 +39,7 @@ function Orga({ match }) {
 					return b["commits"] - a["commits"];
 				})
 			);
+			document.getElementById("commits").classList.add("active");
 		};
 		req();
 	}, []);
@@ -45,26 +53,47 @@ function Orga({ match }) {
 			<div className="header">
 				<h1>{orgaName.toUpperCase()}</h1>
 				<div className="filter_container">
-					<button className="filter_button" onClick={() => updateFilter("commits")}>
+					<button
+						className="filter_button"
+						id="commits"
+						onClick={() => {
+							updateFilter("commits");
+						}}>
 						Filter by commits
 					</button>
-					<button className="filter_button" onClick={() => updateFilter("additions")}>
+					<button
+						className="filter_button"
+						id="additions"
+						onClick={() => {
+							updateFilter("additions");
+						}}>
 						Filter by additions
 					</button>
-					<button className="filter_button" onClick={() => updateFilter("deletions")}>
+					<button
+						className="filter_button"
+						id="deletions"
+						onClick={() => {
+							updateFilter("deletions");
+						}}>
 						Filter by deletions
 					</button>
-					<button className="filter_button" onClick={() => updateFilter("additionsPerCommit")}>
+					<button
+						className="filter_button"
+						id="additionsPerCommit"
+						onClick={() => {
+							updateFilter("additionsPerCommit");
+						}}>
 						Filter by additionsPerCommit
 					</button>
 				</div>
 			</div>
-
-			<div className="user_card_container">
-				{contributors.map((x) => (
-					<User key={x?.name} user={x}></User>
-				))}
-				{!contributors.length && <Error text={"No contributors found"}></Error>}
+			<div className="user_card_container_container">
+				<div className="user_card_container">
+					{contributors.map((x) => (
+						<User key={x?.name} user={x}></User>
+					))}
+					{!contributors.length && <Error text={"No contributors found"}></Error>}
+				</div>
 			</div>
 		</div>
 	);
