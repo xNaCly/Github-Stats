@@ -112,7 +112,7 @@ button {
 	color: var(--text3);
 	border-radius: 0.5rem;
 	padding: 0.75rem;
-	border: none;
+	border: 0.1rem solid transparent;
 	margin: 1rem;
 	cursor: pointer;
 	transition: linear box-shadow 400ms, linear color 400ms,
