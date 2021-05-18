@@ -36,34 +36,42 @@ function Orga({ match }) {
 		]);
 	}
 	useEffect(() => {
-		const req = async () => {
-			let contr = [];
-			let res = await fetch(`${paths[production]}/total/${orgaName}`, {
-				headers: { Authorization: auth },
-			});
-			res = await res.json();
-			for (const x in res) {
-				let tempStats = {
-					totalCommits: (totalStats.totalCommits += res[x].commits),
-					totalAdditions: (totalStats.totalAdditions +=
-						res[x].additions),
-					totalDeletions: (totalStats.totalDeletions +=
-						res[x].deletions),
-					totalAdditionsPerCommit:
-						(totalStats.totalAdditionsPerCommit +=
-							res[x].additionsPerCommit),
-				};
-				updateStats(tempStats);
-				contr.push({ name: x, ...res[x] });
-			}
-			updateContributors(
-				contr.sort((a, b) => {
-					return b["commits"] - a["commits"];
-				})
-			);
-			document.getElementById("commits").classList.add("active");
-		};
-		req();
+		if (auth) {
+			const req = async () => {
+				let contr = [];
+				let res = await fetch(
+					`${paths[production]}/total/${orgaName}`,
+					{
+						headers: { Authorization: auth },
+					}
+				);
+				res = await res.json();
+				for (const x in res) {
+					let tempStats = {
+						totalCommits: (totalStats.totalCommits +=
+							res[x].commits),
+						totalAdditions: (totalStats.totalAdditions +=
+							res[x].additions),
+						totalDeletions: (totalStats.totalDeletions +=
+							res[x].deletions),
+						totalAdditionsPerCommit:
+							(totalStats.totalAdditionsPerCommit +=
+								res[x].additionsPerCommit),
+					};
+					updateStats(tempStats);
+					contr.push({ name: x, ...res[x] });
+				}
+				updateContributors(
+					contr.sort((a, b) => {
+						return b["commits"] - a["commits"];
+					})
+				);
+				try {
+					document.getElementById("commits").classList.add("active");
+				} catch {}
+			};
+			req();
+		}
 	}, []);
 
 	useEffect(() => {
