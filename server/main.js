@@ -1,10 +1,16 @@
 const { port } = require("./config.json");
+
 const total = require("./routes/total");
+const login = require("./routes/login");
+const user = require("./routes/user");
+
 const Express = require("express");
 const db = require("./github/db");
 const app = Express();
 
 app.use("/total", total);
+app.use("/login", login);
+app.use("/user", user);
 
 function log(content) {
 	let d = new Date();

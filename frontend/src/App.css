@@ -76,9 +76,13 @@ a:hover {
 	background-color: var(--secondary);
 	padding: 1rem;
 	margin-bottom: 2rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 .header {
 	margin: 2rem;
+	margin-bottom: 0;
 	text-align: center;
 }
 .filter_container {
@@ -163,6 +167,40 @@ button.active {
 	border: 0.1rem solid var(--aur4);
 	color: var(--aur4);
 }
+.orga_container_container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.orga_container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 70vw;
+}
+.orga_card {
+	font-size: 1.25rem;
+	background-color: var(--secondary);
+	width: 15vw;
+	padding: 1rem;
+	margin: 1rem;
+	border-radius: 0.5rem;
+	min-width: 10vw;
+	min-height: fit-content;
+	word-wrap: break-word;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	flex-grow: 1;
+}
+.orga_card:hover {
+	box-shadow: 0 10px 20px 2px rgba(15, 17, 21, 0.5);
+}
+.orga_header {
+	font-size: 3rem;
+	text-transform: uppercase;
+	font-weight: bold;
+}
 .user_card_container_container {
 	display: flex;
 	align-items: center;
@@ -213,6 +251,52 @@ button.active {
 }
 .user_card_stat_header {
 	color: var(--text1);
+}
+.github_signin {
+	background-color: var(--primary);
+	color: var(--text3);
+	border-radius: 0.5rem;
+	padding: 0.5rem;
+	border: none;
+	/* margin: 1rem; */
+	cursor: pointer;
+	font-size: smaller;
+}
+.landingpage {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+.github_signin:hover {
+	color: var(--text1);
+	background-color: var(--primary-hover);
+}
+.navbar_github_container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.navbar_github_name {
+	color: var(--text4);
+	font-size: 1.25rem;
+	cursor: pointer;
+}
+.navbar_github_link {
+	padding: 0;
+	width: 2.5rem;
+	height: 2.5rem;
+}
+.navbar_github_avatar {
+	height: 2.5rem;
+	border-radius: 50%;
+	border: 0.2rem solid var(--frost3);
+	margin-left: 0.5rem;
+}
+.oauth_container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 @media screen and (max-width: 600px) {
 	.user_card {

@@ -6,6 +6,7 @@ import Orga from "./components/sites/Orga";
 // import Repo from "./components/sites/Repo";
 import LandingPage from "./components/sites/LandingPage";
 import Navbar from "./components/utils/Navbar";
+import Oauth from "./components/sites/Oauth";
 
 function App() {
 	return (
@@ -13,6 +14,7 @@ function App() {
 			<Navbar></Navbar>
 			<Route path="/" exact component={LandingPage}></Route>
 			<Route path="/orga/:orgaName" component={Orga}></Route>
+			<Route path="/oauth" component={Oauth}></Route>
 			{/* <Route path="/repo/:orgaName/:repoName" component={Repo}></Route> */}
 		</Router>
 	);

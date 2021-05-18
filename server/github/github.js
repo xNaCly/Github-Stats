@@ -13,7 +13,10 @@ class Github {
 
 	async makeRequest(path) {
 		let res = await fetch(path, {
-			headers: { Authorization: `Token ${this.auth}`, "User-Agent": this.organisationName },
+			headers: {
+				Authorization: `token ${this.auth}`,
+				"User-Agent": this.organisationName,
+			},
 		});
 		if (res.status !== 200) console.log(path, res.status);
 		res = await res.json();
@@ -26,7 +29,9 @@ class Github {
 	}
 
 	async getRepoStats(repoName) {
-		let repo = await this.makeRequest(this.paths.stats.replace("%REPO_NAME%", repoName));
+		let repo = await this.makeRequest(
+			this.paths.stats.replace("%REPO_NAME%", repoName)
+		);
 		let contributors = [];
 		try {
 			for (let contributor of repo) {
@@ -72,7 +77,9 @@ class Github {
 				cont.deletions += con.deletions;
 				cont.commits += con.commits;
 				cont.realAdditions = cont.additions - cont.deletions;
-				cont.additionsPerCommit = Math.round(cont.additions / cont.commits);
+				cont.additionsPerCommit = Math.round(
+					cont.additions / cont.commits
+				);
 			}
 		}
 		return contributors;
