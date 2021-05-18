@@ -22,7 +22,9 @@ function Navbar() {
 	return (
 		<div className="navbar">
 			<div>
-				<Link to="/">Home</Link>
+				<Link className="navbar_item" to="/">
+					Home
+				</Link>
 			</div>
 			<div>
 				{!login ? (

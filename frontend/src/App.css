@@ -5,9 +5,9 @@
 }
 :root {
 	/*primary nord*/
-	--primary: #2e3440;
-	--secondary: #3b4252;
-	--third: #434c5e;
+	--primary: #242933;
+	--secondary: #292e39;
+	--third: #2e3440;
 	--forth: #4c566a;
 	--primary-hover: rgb(46, 52, 64, 0.8);
 	--secondary-hover: rgb(60, 67, 83, 0.8);
@@ -58,6 +58,7 @@
 * > body {
 	font-family: "Rubik", sans-serif !important;
 	margin: 0;
+	height: 100vh;
 	font-size: 16pt !important;
 	background-color: var(--primary) !important;
 	color: var(--text3) !important;
@@ -67,18 +68,32 @@ a {
 	padding-bottom: 0.01rem;
 	/* border-bottom: 1px solid var(--frost3); */
 	color: var(--frost3);
+	transition: linear color 400ms;
 }
 a:hover {
 	/* border-bottom: 1px solid var(--frost3-hover); */
 	color: var(--frost3-hover);
 }
 .navbar {
-	background-color: var(--secondary);
+	background-color: var(--third);
 	padding: 1rem;
-	margin-bottom: 2rem;
+	position: sticky;
+	top: 0;
+	/* margin-bottom: 2rem; */
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+}
+.navbar_item {
+	color: var(--text3);
+	font-size: 1.5rem;
+	padding: 0.5rem;
+	border-radius: 0.5rem;
+	transition: linear background-color 400ms, linear color 400ms;
+}
+.navbar_item:hover {
+	background-color: var(--forth);
+	color: var(--text2);
 }
 .header {
 	margin: 2rem;
@@ -100,11 +115,17 @@ button {
 	border: none;
 	margin: 1rem;
 	cursor: pointer;
+	transition: linear box-shadow 400ms, linear color 400ms,
+		linear background-color 400ms;
 }
 button:hover {
 	color: var(--text3);
 	background-color: var(--frost3-hover);
 	box-shadow: 0 10px 20px 2px rgba(15, 17, 21, 0.5);
+}
+button.clean {
+	background-color: transparent;
+	border: 0.1rem solid var(--text3);
 }
 button.danger {
 	background-color: var(--aur1);
@@ -130,6 +151,11 @@ button.warning.active {
 button.success.active {
 	background-color: var(--aur4---aur1-hard-hover);
 	border: 0.1rem solid var(--aur4-hard-hover);
+}
+button.clean:hover {
+	background-color: transparent;
+	border: 0.1rem solid var(--frost3);
+	color: var(--frost3);
 }
 button.danger:hover {
 	background-color: var(--aur1-hover);
@@ -192,6 +218,8 @@ button.active {
 	flex-direction: column;
 	justify-content: space-between;
 	flex-grow: 1;
+	margin-top: 0;
+	transition: linear box-shadow 400ms;
 }
 .orga_card:hover {
 	box-shadow: 0 10px 20px 2px rgba(15, 17, 21, 0.5);
@@ -228,6 +256,7 @@ button.active {
 	flex-direction: column;
 	justify-content: space-between;
 	flex-grow: 1;
+	transition: linear box-shadow 400ms;
 }
 .user_card:hover {
 	box-shadow: 0 10px 20px 2px rgba(15, 17, 21, 0.5);
@@ -297,17 +326,86 @@ button.active {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	flex-direction: column;
+}
+.landingpage_header {
+	font-size: 3rem;
+	color: var(--text3);
+	margin-bottom: 2rem;
+}
+.landingpage_sub_header {
+	color: var(--text1);
+}
+.landingpage_header_container {
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	flex-direction: column;
+	width: 80vw;
+	margin-bottom: 5rem;
+}
+.landingpage_card_container_left {
+	width: 80%;
+	display: flex;
+	align-items: center;
+	justify-content: start;
+}
+.landingpage_card_container_right {
+	width: 80%;
+	display: flex;
+	align-items: center;
+	justify-content: end;
+}
+.landingpage_card {
+	background-color: var(--secondary);
+	transition: linear box-shadow 400ms;
+	height: 25vh;
+	width: 30vw;
+	border-radius: 0.5rem;
+	margin: 1rem;
+	padding: 1rem;
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+	justify-content: space-around;
+}
+.landingpage_card_content {
+	font-size: smaller;
+}
+.landingpage_card_content_header {
+	font-size: larger;
+}
+.landingpage_card:hover {
+	box-shadow: 0 10px 20px 2px rgba(15, 17, 21, 0.5);
+}
+.landingpage_header_button_container button {
+	margin-left: 0;
+	font-size: large;
 }
 @media screen and (max-width: 600px) {
 	.user_card {
 		width: 80vw;
 		/* height: 30vw; */
 	}
+	.landingpage_card {
+		width: 100vw;
+	}
+	.landingpage_card_container_left,
+	.landingpage_card_container_right {
+		width: 100vw;
+	}
 }
 @media screen and (max-width: 1000px) {
+	.landingpage_card {
+		width: 60vw;
+	}
 	.user_card {
 		width: 40vw;
 		/* height: 30vw; */
+	}
+	.landingpage_card_container_left,
+	.landingpage_card_container_right {
+		justify-content: center;
 	}
 }
 @media screen and (max-width: 1400px) {
