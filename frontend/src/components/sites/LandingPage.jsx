@@ -1,30 +1,6 @@
 import { Link } from "react-router-dom";
-import { Pie, Doughnut } from "react-chartjs-2";
 import User from "../utils/User";
 import OrgaComp from "../utils/OrgaComp";
-
-const data = {
-	labels: [],
-	datasets: [
-		{
-			label: "# of Commits",
-			data: [12, 19, 3, 5],
-			backgroundColor: [
-				"rgb(46, 52, 64, 0.8)",
-				"rgb(60, 67, 83, 0.8)",
-				"rgb(67, 76, 94, 0.8)",
-				"rgb(76, 86, 106, 0.8)",
-			],
-			borderColor: [
-				"rgb(46, 52, 64, 0.8)",
-				"rgb(60, 67, 83, 0.8)",
-				"rgb(67, 76, 94, 0.8)",
-				"rgb(76, 86, 106, 0.8)",
-			],
-			borderWidth: 1,
-		},
-	],
-};
 
 function LandingPage() {
 	return (
