@@ -9,7 +9,7 @@ function Navbar() {
 	useEffect(() => {
 		if (login) {
 			const getUser = async () => {
-				let res = await fetch(`${paths[production]}/user/${login}`, {
+				let res = await fetch(`${paths[production]}/user/`, {
 					headers: { Authorization: login },
 				});
 				res = await res.json();
