@@ -28,7 +28,7 @@ function Oauth() {
 					d="M0,128L40,138.7C80,149,160,171,240,160C320,149,400,107,480,96C560,85,640,107,720,133.3C800,160,880,192,960,208C1040,224,1120,224,1200,218.7C1280,213,1360,203,1400,197.3L1440,192L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"></path>
 			</svg>
 			{!localStorage.getItem("login") ? (
-				<Error text="Connecting to Github"></Error>
+				<Error text="Not connected to github" type="danger"></Error>
 			) : (
 				<Error text="Connected to Github" type="success"></Error>
 			)}
