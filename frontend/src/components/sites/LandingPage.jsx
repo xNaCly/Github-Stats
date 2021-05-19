@@ -1,4 +1,30 @@
 import { Link } from "react-router-dom";
+import { Pie, Doughnut } from "react-chartjs-2";
+import User from "../utils/User";
+import OrgaComp from "../utils/OrgaComp";
+
+const data = {
+	labels: [],
+	datasets: [
+		{
+			label: "# of Commits",
+			data: [12, 19, 3, 5],
+			backgroundColor: [
+				"rgb(46, 52, 64, 0.8)",
+				"rgb(60, 67, 83, 0.8)",
+				"rgb(67, 76, 94, 0.8)",
+				"rgb(76, 86, 106, 0.8)",
+			],
+			borderColor: [
+				"rgb(46, 52, 64, 0.8)",
+				"rgb(60, 67, 83, 0.8)",
+				"rgb(67, 76, 94, 0.8)",
+				"rgb(76, 86, 106, 0.8)",
+			],
+			borderWidth: 1,
+		},
+	],
+};
 
 function LandingPage() {
 	return (
@@ -13,8 +39,8 @@ function LandingPage() {
 				<h1 className="landingpage_header">Github Stats</h1>
 				<p className="landingpage_sub_header">
 					a minimal and easy to use dashboard for{" "}
-					<a href="https://github.com">Github</a> organisations and
-					users
+					<a href="https://github.com">Github</a> organisation and
+					user statistics
 				</p>
 				<div className="landingpage_header_button_container">
 					<a href="https://github.com/xnacly/github-stats">
@@ -25,15 +51,63 @@ function LandingPage() {
 					</Link>
 				</div>
 			</div>
-			<div className="landingpage_card_container_left">
-				<div className="landingpage_card">test</div>
+			<div className="landingpage_header_container_extra">
+				<div className="pie_container_container"></div>
+				<div>
+					<h1 className="landingpage_header">
+						Extensive statistics.
+					</h1>
+					{/* <p className="landingpage_sub_header big_text">
+						Featuring:
+					</p> */}
+					<span>Organisation:</span>
+					<OrgaComp
+						landing={true}
+						orgaName={"fosscord"}
+						totalStats={{
+							totalCommits: 6258,
+							totalAdditions: 1888663,
+							totalDeletions: 1471577,
+							totalAdditionsPerCommit: 18378,
+						}}></OrgaComp>
+					{/* <ul>
+						<li>Commits</li>
+						<li>Additions</li>
+						<li>Deletions</li>
+						<li>Additions/Commit</li>
+					</ul> */}
+					<span>Contributor:</span>
+					<User
+						landing={true}
+						user={{
+							name: "xnacly",
+							additions: 191576,
+							deletions: 4778,
+							realAdditions: 186798,
+							commits: 87,
+							additionsPerCommit: 2202,
+						}}></User>
+					{/* <ul>
+						<li>Commits</li>
+						<li>Additions</li>
+						<li>Deletions</li>
+						<li>Additions/Commit</li>
+					</ul> */}
+					<span className="smoll_text cursive">
+						alongside of various informative charts
+					</span>
+				</div>
+
+				{/* <div className="landingpage_header_button_container">
+					<a href="https://github.com/xnacly/github-stats">
+						<button>Github</button>
+					</a>
+					<Link to="orga/fosscord">
+						<button className="clean">Example</button>
+					</Link>
+				</div> */}
 			</div>
-			<div className="landingpage_card_container_right">
-				<div className="landingpage_card">test</div>
-			</div>
-			<div className="landingpage_card_container_left">
-				<div className="landingpage_card">test</div>
-			</div>
+
 			<svg viewBox="0 0 1920 250" xmlns="http://www.w3.org/2000/svg">
 				<path
 					fill="var(--third)"
