@@ -1,4 +1,4 @@
-# Github-Stats
+# [Github-Stats](https://xnacly-github-stats.vercel.app/)
 
 dashboard to view a users/orgas github stats
 
