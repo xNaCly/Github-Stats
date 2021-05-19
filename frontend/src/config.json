@@ -1,0 +1,5 @@
+{
+	"production": 0,
+	"paths": ["http://localhost:1234", "url"],
+	"client_id": "78fe8ada90c92b096836"
+}
