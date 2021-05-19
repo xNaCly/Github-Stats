@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -100,6 +101,16 @@ a:hover {
 	margin-bottom: 0;
 	text-align: center;
 }
+.smoll_text {
+	color: var(--text4);
+	font-size: smaller;
+}
+.cursive {
+	font-style: italic;
+}
+.big_text {
+	font-size: 2rem;
+}
 .filter_container {
 	display: flex;
 	flex-direction: row;
@@ -115,7 +126,7 @@ button {
 	border: 0.1rem solid transparent;
 	margin: 1rem;
 	cursor: pointer;
-	transition: linear box-shadow 400ms, linear color 400ms,
+	transition: linear box-shadow 400ms, linear color 400ms, linear border 400ms,
 		linear background-color 400ms;
 }
 button:hover {
@@ -218,14 +229,14 @@ button.active {
 	flex-direction: column;
 	justify-content: space-between;
 	flex-grow: 1;
-	margin-top: 0;
+	/* margin-top: 0; */
 	transition: linear box-shadow 400ms;
 }
 .orga_card:hover {
 	box-shadow: 0 10px 20px 2px rgba(15, 17, 21, 0.5);
 }
 .orga_header {
-	font-size: 3rem;
+	font-size: 2rem;
 	text-transform: uppercase;
 	font-weight: bold;
 }
@@ -335,26 +346,15 @@ button.active {
 }
 .landingpage_sub_header {
 	color: var(--text1);
+	margin-bottom: 1rem;
 }
 .landingpage_header_container {
 	display: flex;
 	align-items: flex-start;
 	justify-content: center;
 	flex-direction: column;
-	width: 80vw;
+	width: 90vw;
 	margin-bottom: 5rem;
-}
-.landingpage_card_container_left {
-	width: 80%;
-	display: flex;
-	align-items: center;
-	justify-content: start;
-}
-.landingpage_card_container_right {
-	width: 80%;
-	display: flex;
-	align-items: center;
-	justify-content: end;
 }
 .landingpage_card {
 	background-color: var(--secondary);
@@ -382,8 +382,42 @@ button.active {
 	margin-left: 0;
 	font-size: large;
 }
-@media screen and (max-width: 600px) {
-	.user_card {
+ul {
+	margin-left: 1.5rem;
+	margin-bottom: 1.5rem;
+	list-style-type: disc;
+}
+ul > li {
+	font-size: smaller;
+	color: var(--text4);
+}
+.landingpage_header_container_extra {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 90vw;
+	margin-bottom: 20rem;
+	flex-wrap: wrap;
+}
+.pie_container_container {
+	flex-wrap: wrap;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.landingpage_header_container_extra > .pie_container {
+}
+.landingpage_orga_card {
+	width: 30vw;
+	flex-grow: 0;
+}
+.landingpage_user_card {
+	width: 30vw;
+}
+
+@media screen and (max-width: 800px) {
+	.user_card,
+	.landingpage_orga_card {
 		width: 80vw;
 		/* height: 30vw; */
 	}
@@ -393,24 +427,5 @@ button.active {
 	.landingpage_card_container_left,
 	.landingpage_card_container_right {
 		width: 100vw;
-	}
-}
-@media screen and (max-width: 1000px) {
-	.landingpage_card {
-		width: 60vw;
-	}
-	.user_card {
-		width: 40vw;
-		/* height: 30vw; */
-	}
-	.landingpage_card_container_left,
-	.landingpage_card_container_right {
-		justify-content: center;
-	}
-}
-@media screen and (max-width: 1400px) {
-	.user_card {
-		width: 30vw;
-		/* height: 30vw; */
 	}
 }
