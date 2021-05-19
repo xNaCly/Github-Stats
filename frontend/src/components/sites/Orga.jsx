@@ -3,6 +3,7 @@ import fetch from "node-fetch";
 import { production, paths } from "../../config.json";
 import User from "../utils/User";
 import Error from "../utils/Error";
+import OrgaComp from "../utils/OrgaComp";
 
 function Orga({ match }) {
 	const { orgaName } = match.params;
@@ -90,45 +91,9 @@ function Orga({ match }) {
 				<div className="header">
 					<div className="orga_container_container">
 						<div className="orga_container">
-							<div className="orga_card">
-								<div className="orga_header">
-									<a href={`https://github.com/${orgaName}`}>
-										{orgaName}
-									</a>
-								</div>
-								<div className="user_card_stat_container">
-									<h5 className="user_card_stat_header">
-										Total Commits
-									</h5>
-									<span className="user_card_stat_content">
-										{totalStats.totalCommits}
-									</span>
-								</div>
-								<div className="user_card_stat_container">
-									<h5 className="user_card_stat_header">
-										Total Additions
-									</h5>
-									<span className="user_card_stat_content">
-										{totalStats.totalAdditions}
-									</span>
-								</div>
-								<div className="user_card_stat_container">
-									<h5 className="user_card_stat_header">
-										Total Deletions
-									</h5>
-									<span className="user_card_stat_content">
-										{totalStats.totalDeletions}
-									</span>
-								</div>
-								<div className="user_card_stat_container">
-									<h5 className="user_card_stat_header">
-										Total Additions/Commit
-									</h5>
-									<span className="user_card_stat_content">
-										{totalStats.totalAdditionsPerCommit}
-									</span>
-								</div>
-							</div>
+							<OrgaComp
+								orgaName={orgaName}
+								totalStats={totalStats}></OrgaComp>
 						</div>
 					</div>
 					<div className="filter_container">
