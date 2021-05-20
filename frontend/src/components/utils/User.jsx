@@ -1,10 +1,10 @@
-function User({ user, landing = false }) {
+function User({ user, num, landing = false }) {
 	return (
 		<div className={`user_card ${landing && "landingpage_user_card"}`}>
 			<div className="user_card_content">
 				<h5 className="orga_header">
 					<a href={`https://github.com/${user?.name}`}>
-						{user?.name}
+						{user?.name} #{num + 1}
 					</a>
 				</h5>
 				<div className="user_card_stat_container">
