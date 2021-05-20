@@ -7,7 +7,7 @@ router.get("/:orgaName", async (req, res) => {
 	const token = req.header("Authorization");
 	res.set("Access-Control-Allow-Origin", "*");
 	let total = await db.data.orgas({ name: req.params.orgaName }).get();
-	if (!token) return res.send(total);
+	if (!token) return res.send({});
 	let github = new Github(req.params.orgaName, token);
 
 	if (!total) {
