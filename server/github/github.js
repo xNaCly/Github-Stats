@@ -1,4 +1,6 @@
 const fetch = require("node-fetch");
+const { options } = require("../config.json");
+const { excludeForks } = options;
 
 class Github {
 	constructor(organisationName, auth) {
@@ -7,6 +9,7 @@ class Github {
 		this.paths = {
 			repos: `https://api.github.com/users/${this.organisationName}/repos`,
 			stats: `https://api.github.com/repos/${this.organisationName}/%REPO_NAME%/stats/contributors`,
+			repo: `https://api.github.com/repos/${this.organisationName}/%REPO_NAME%`,
 		};
 	}
 
@@ -59,6 +62,12 @@ class Github {
 		let raw_contr = [];
 		let contributors = {};
 		for (let _repo of repos) {
+			if (excludeForks) {
+				let { fork } = await this.makeRequest(
+					this.paths.repo.replace("%REPO_NAME%", _repo)
+				);
+				if (fork) continue;
+			}
 			let repo = await this.getRepoStats(_repo);
 			for (const contr of repo) {
 				raw_contr.push(contr);

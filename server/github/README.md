@@ -86,7 +86,7 @@ fosscord-api:
 4. `getOrgStats()`
 
 ```js
-github.getOrgStats("<repos>");
+github.getOrgStats("<repos>","excludeForks<Bool>");
 
 --> Object<Object>
 {

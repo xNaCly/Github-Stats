@@ -12,7 +12,10 @@
 {
 	"db": "mongodb+srv://?retryWrites=true&w=majority",
 	"port": 1234,
-	"client_secret": ""
+	"client_secret": "",
+	"options": {
+		"excludeForks": true
+	}
 }
 ```
 
