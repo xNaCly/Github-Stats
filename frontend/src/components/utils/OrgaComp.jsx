@@ -23,6 +23,12 @@ function OrgaComp({ orgaName, totalStats, landing = false }) {
 				</span>
 			</div>
 			<div className="user_card_stat_container">
+				<h5 className="user_card_stat_header">Total Real Additions</h5>
+				<span className="user_card_stat_content">
+					{totalStats.totalRealAdditions?.toLocaleString()}
+				</span>
+			</div>
+			<div className="user_card_stat_container">
 				<h5 className="user_card_stat_header">
 					Total Additions/Commit
 				</h5>

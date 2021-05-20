@@ -14,6 +14,7 @@ function Orga({ match }) {
 		totalCommits: 0,
 		totalAdditions: 0,
 		totalDeletions: 0,
+		totalRealAdditions: 0,
 		totalAdditionsPerCommit: 0,
 	});
 
@@ -55,6 +56,9 @@ function Orga({ match }) {
 							res[x].additions),
 						totalDeletions: (totalStats.totalDeletions +=
 							res[x].deletions),
+						totalRealAdditions:
+							(totalStats.totalAdditions += res[x].additions) -
+							(totalStats.totalDeletions += res[x].deletions),
 						totalAdditionsPerCommit:
 							(totalStats.totalAdditionsPerCommit +=
 								res[x].additionsPerCommit),
@@ -142,8 +146,8 @@ function Orga({ match }) {
 			)}
 			<div className="user_card_container_container">
 				<div className="user_card_container">
-					{contributors.map((x) => (
-						<User key={x?.name} user={x}></User>
+					{contributors.map((x, i) => (
+						<User key={x?.name} num={i} user={x}></User>
 					))}
 
 					{auth && !contributors.length && (
