@@ -19,7 +19,7 @@ router.get("/:orgaName", async (req, res) => {
 		return res.send(total);
 	}
 	res.send(total.stats);
-	if (total.createdAt < Date.now() - 30 * 60 * 1000) {
+	if (total.createdAt < Date.now() - 5 * 60 * 1000) {
 		const repoNames = await github.getAllRepoNames();
 		newTotal = await github.getOrgStats(repoNames);
 		db.data
