@@ -5,7 +5,7 @@ const fetch = require("node-fetch");
 
 router.get("/:client_id/:code", async (req, res) => {
 	const { client_id, code } = req.params;
-	res.append("Access-Control-Allow-Origin", ["*"]);
+	res.set("Access-Control-Allow-Origin", "*");
 	if (!client_id || !code)
 		return res.status(401).send({ error: "missing code" });
 	let res_ = await fetch(

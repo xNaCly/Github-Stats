@@ -5,7 +5,7 @@ const db = require("../github/db");
 
 router.get("/:orgaName", async (req, res) => {
 	const token = req.header("Authorization");
-	res.append("Access-Control-Allow-Origin", ["*"]);
+	res.set("Access-Control-Allow-Origin", "*");
 	let total = await db.data.orgas({ name: req.params.orgaName }).get();
 	if (!token) return res.send(total);
 	let github = new Github(req.params.orgaName, token);
@@ -13,14 +13,18 @@ router.get("/:orgaName", async (req, res) => {
 	if (!total) {
 		const repoNames = await github.getAllRepoNames();
 		total = await github.getOrgStats(repoNames);
-		await db.data.orgas({ name: req.params.orgaName }).set({ stats: total, createdAt: Date.now(), repo: [] });
+		await db.data
+			.orgas({ name: req.params.orgaName })
+			.set({ stats: total, createdAt: Date.now(), repo: [] });
 		return res.send(total);
 	}
 	res.send(total.stats);
 	if (total.createdAt < Date.now() - 30 * 60 * 1000) {
 		const repoNames = await github.getAllRepoNames();
 		newTotal = await github.getOrgStats(repoNames);
-		db.data.orgas({ name: req.params.orgaName }).set({ stats: newTotal, createdAt: Date.now(), repo: [] });
+		db.data
+			.orgas({ name: req.params.orgaName })
+			.set({ stats: newTotal, createdAt: Date.now(), repo: [] });
 	}
 });
 

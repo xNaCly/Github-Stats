@@ -4,7 +4,7 @@ const fetch = require("node-fetch");
 
 router.get("/", async (req, res) => {
 	const token = req.header("Authorization");
-	res.append("Access-Control-Allow-Origin", ["*"]);
+	res.set("Access-Control-Allow-Origin", "*");
 	if (!token) return res.status(401).send({ error: "missing code" });
 	let res_ = await fetch("https://api.github.com/user", {
 		method: "GET",
