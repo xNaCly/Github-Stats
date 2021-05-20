@@ -16,6 +16,7 @@ function Oauth() {
 			);
 			res = await res.json();
 			localStorage.setItem("login", res.access_token);
+			window.location.reload()
 		};
 		getAuth();
 	}, []);
