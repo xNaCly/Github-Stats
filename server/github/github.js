@@ -1,5 +1,4 @@
 const fetch = require("node-fetch");
-require("missing-native-js-functions");
 
 class Github {
 	constructor(organisationName, auth) {
