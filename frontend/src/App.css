@@ -354,7 +354,6 @@ button.active {
 	justify-content: center;
 	flex-direction: column;
 	width: 90vw;
-	margin-bottom: 5rem;
 }
 .landingpage_card {
 	background-color: var(--secondary);
@@ -414,8 +413,29 @@ ul > li {
 .landingpage_user_card {
 	width: 30vw;
 }
-
+.searchContainer {
+	display: flex;
+	align-items: center;
+}
+.searchInput {
+	font-size: larger;
+	background-color: var(--secondary);
+	border-radius: 0.5rem;
+	color: var(--text3);
+	padding: 1rem;
+	border: none;
+	min-width: 5vw;
+}
+.searchSubmit {
+	font-size: larger;
+}
+.searchInput:focus {
+	outline: 0.1rem solid var(--frost3);
+}
 @media screen and (max-width: 800px) {
+	.searchInput {
+		font-size: medium;
+	}
 	.user_card,
 	.landingpage_orga_card {
 		width: 80vw;

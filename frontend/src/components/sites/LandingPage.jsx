@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import User from "../utils/User";
 import OrgaComp from "../utils/OrgaComp";
+import Search from "../utils/Search";
 
 function LandingPage() {
 	return (
@@ -28,14 +29,14 @@ function LandingPage() {
 				</div>
 			</div>
 			<div className="landingpage_header_container_extra">
-				<div className="pie_container_container"></div>
+				<div>
+					<h1 className="landingpage_header">Search.</h1>
+					<Search></Search>
+				</div>
 				<div>
 					<h1 className="landingpage_header">
 						Extensive statistics.
 					</h1>
-					{/* <p className="landingpage_sub_header big_text">
-						Featuring:
-					</p> */}
 					<span>Organisation:</span>
 					<OrgaComp
 						landing={true}
@@ -46,12 +47,6 @@ function LandingPage() {
 							totalDeletions: 1471577,
 							totalAdditionsPerCommit: 18378,
 						}}></OrgaComp>
-					{/* <ul>
-						<li>Commits</li>
-						<li>Additions</li>
-						<li>Deletions</li>
-						<li>Additions/Commit</li>
-					</ul> */}
 					<span>Contributor:</span>
 					<User
 						landing={true}
@@ -63,27 +58,11 @@ function LandingPage() {
 							commits: 87,
 							additionsPerCommit: 2202,
 						}}></User>
-					{/* <ul>
-						<li>Commits</li>
-						<li>Additions</li>
-						<li>Deletions</li>
-						<li>Additions/Commit</li>
-					</ul> */}
 					<span className="smoll_text cursive">
 						alongside of various informative charts
 					</span>
 				</div>
-
-				{/* <div className="landingpage_header_button_container">
-					<a href="https://github.com/xnacly/github-stats">
-						<button>Github</button>
-					</a>
-					<Link to="orga/fosscord">
-						<button className="clean">Example</button>
-					</Link>
-				</div> */}
 			</div>
-
 			<svg viewBox="0 0 1920 250" xmlns="http://www.w3.org/2000/svg">
 				<path
 					fill="var(--third)"

@@ -2,6 +2,7 @@ import fetch from "node-fetch";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { client_id, production, paths } from "../../config.json";
+
 function Navbar() {
 	const login = localStorage.getItem("login");
 	const [user, updateUser] = useState({});
@@ -21,7 +22,7 @@ function Navbar() {
 
 	return (
 		<div className="navbar">
-			<div>
+			<div className="navbar_item_container">
 				<Link className="navbar_item" to="/">
 					Home
 				</Link>
