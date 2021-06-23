@@ -17,7 +17,7 @@ function Search() {
 			/>
 			<button
 				className="searchSubmit"
-				onClick={(e) => history.push(`/orga/${search}`)}>
+				onClick={(e) => search && history.push(`/orga/${search}`)}>
 				Search
 			</button>
 		</div>
