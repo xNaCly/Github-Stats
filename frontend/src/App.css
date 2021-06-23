@@ -123,7 +123,7 @@ button {
 	color: var(--text3);
 	border-radius: 0.5rem;
 	padding: 0.75rem;
-	border: 0.1rem solid transparent;
+	border: 0.15rem solid transparent;
 	margin: 1rem;
 	cursor: pointer;
 	transition: linear box-shadow 400ms, linear color 400ms, linear border 400ms,
@@ -136,7 +136,7 @@ button:hover {
 }
 button.clean {
 	background-color: transparent;
-	border: 0.1rem solid var(--text3);
+	border: 0.15rem solid var(--text3);
 }
 button.danger {
 	background-color: var(--aur1);
@@ -149,23 +149,23 @@ button.success {
 }
 button.active {
 	background-color: var(--frost3-hard-hover);
-	border: 0.1rem solid var(--frost3);
+	border: 0.15rem solid var(--frost3);
 }
 button.danger.active {
 	background-color: var(--aur1-hard-hover);
-	border: 0.1rem solid var(--aur1-hard-hover);
+	border: 0.15rem solid var(--aur1-hard-hover);
 }
 button.warning.active {
 	background-color: var(--aur3---aur1-hard-hover);
-	border: 0.1rem solid var(--aur3-hard-hover);
+	border: 0.15rem solid var(--aur3-hard-hover);
 }
 button.success.active {
 	background-color: var(--aur4---aur1-hard-hover);
-	border: 0.1rem solid var(--aur4-hard-hover);
+	border: 0.15rem solid var(--aur4-hard-hover);
 }
 button.clean:hover {
 	background-color: transparent;
-	border: 0.1rem solid var(--frost3);
+	border: 0.15rem solid var(--frost3);
 	color: var(--frost3);
 }
 button.danger:hover {
@@ -182,7 +182,7 @@ button.active {
 }
 .alert {
 	background-color: var(--frost3-hard-hover);
-	border: 0.1rem solid var(--frost3);
+	border: 0.15rem solid var(--frost3);
 	padding: 1.25rem;
 	margin: 1rem;
 	border-radius: 0.5rem;
@@ -191,17 +191,17 @@ button.active {
 }
 .alert.danger {
 	background-color: var(--aur1-hard-hover);
-	border: 0.1rem solid var(--aur1);
+	border: 0.15rem solid var(--aur1);
 	color: var(--aur1);
 }
 .alert.warning {
 	background-color: var(--aur3-hard-hover);
-	border: 0.1rem solid var(--aur3);
+	border: 0.15rem solid var(--aur3);
 	color: var(--aur3);
 }
 .alert.success {
 	background-color: var(--aur4-hard-hover);
-	border: 0.1rem solid var(--aur4);
+	border: 0.15rem solid var(--aur4);
 	color: var(--aur4);
 }
 .orga_container_container {
@@ -286,7 +286,7 @@ button.active {
 	margin-bottom: 0.5rem;
 }
 .user_card_href {
-	top: 0.25rem;
+	top: 0.15rem;
 	font-size: 0.95rem;
 }
 .user_card_stat_header {
@@ -425,12 +425,14 @@ ul > li {
 	padding: 1rem;
 	border: none;
 	min-width: 5vw;
+  border: 0.15rem solid transparent;
 }
 .searchSubmit {
 	font-size: larger;
 }
 .searchInput:focus {
-	outline: 0.1rem solid var(--frost3);
+	outline: none;
+  border: 0.15rem solid var(--frost3);
 }
 @media screen and (max-width: 800px) {
 	.searchInput {
