@@ -46,6 +46,7 @@ function LandingPage() {
 							totalAdditions: 1888663,
 							totalDeletions: 1471577,
 							totalAdditionsPerCommit: 18378,
+              totalRealAdditions: 417086
 						}}></OrgaComp>
 					<span>Contributor:</span>
 					<User
