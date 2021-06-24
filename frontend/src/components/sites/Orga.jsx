@@ -25,6 +25,7 @@ function Orga({ match }) {
 				"additions",
 				"deletions",
 				"additionsPerCommit",
+				"realAdditions",
 			].filter((e) => e !== type);
 			for (let t of types) {
 				document.getElementById(t).classList.remove("active");
@@ -124,6 +125,14 @@ function Orga({ match }) {
 								updateFilter("deletions");
 							}}>
 							Sort by deletions
+						</button>
+						<button
+							className="filter_button"
+							id="realAdditions"
+							onClick={() => {
+								updateFilter("realAdditions");
+							}}>
+							Sort by realAdditions
 						</button>
 						<button
 							className="filter_button"
