@@ -425,14 +425,14 @@ ul > li {
 	padding: 1rem;
 	border: none;
 	min-width: 5vw;
-  border: 0.15rem solid transparent;
+	border: 0.15rem solid transparent;
 }
 .searchSubmit {
 	font-size: larger;
 }
 .searchInput:focus {
 	outline: none;
-  border: 0.15rem solid var(--frost3);
+	border: 0.15rem solid var(--frost3);
 }
 @media screen and (max-width: 800px) {
 	.searchInput {
@@ -449,5 +449,8 @@ ul > li {
 	.landingpage_card_container_left,
 	.landingpage_card_container_right {
 		width: 100vw;
+	}
+	.filter_container {
+		flex-direction: column;
 	}
 }
