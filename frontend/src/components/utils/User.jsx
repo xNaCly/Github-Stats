@@ -4,7 +4,7 @@ function User({ user, num, landing = false }) {
 			<div className="user_card_content">
 				<h5 className="orga_header">
 					<a href={`https://github.com/${user?.name}`}>
-						{user?.name} {num && `#${num + 1}`}
+						{user?.name} {`#${num + 1}`}
 					</a>
 				</h5>
 				<div className="user_card_stat_container">
