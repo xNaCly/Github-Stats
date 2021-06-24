@@ -426,6 +426,7 @@ ul > li {
 	border: none;
 	min-width: 5vw;
 	border: 0.15rem solid transparent;
+	transition: linear box-shadow 400ms;
 }
 .searchSubmit {
 	font-size: larger;
@@ -433,6 +434,10 @@ ul > li {
 .searchInput:focus {
 	outline: none;
 	border: 0.15rem solid var(--frost3);
+	box-shadow: 0 10px 20px 2px rgba(15, 17, 21, 0.5) !important;
+}
+.searchInput:hover {
+	box-shadow: 0 5px 10px 2px rgba(15, 17, 21, 0.5);
 }
 @media screen and (max-width: 800px) {
 	.searchInput {
