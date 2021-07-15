@@ -6,6 +6,7 @@ import { client_id, production, paths } from "../../config.json";
 function Navbar() {
 	const login = localStorage.getItem("login");
 	const [user, updateUser] = useState({});
+	const [popupOpen, updatePopupOpen] = useState(false);
 
 	useEffect(() => {
 		if (login) {
@@ -19,6 +20,24 @@ function Navbar() {
 			getUser();
 		}
 	}, []);
+
+	useEffect(() => {
+		try {
+			const element = document.getElementById("user_popup");
+			const classes = element.classList;
+			if (classes.contains("shown")) {
+				classes.remove("shown");
+				element.style.display = "flex";
+			} else {
+				classes.add("shown");
+				element.style.display = "none";
+			}
+		} catch {}
+	}, [popupOpen]);
+
+	function logout() {
+		localStorage.removeItem("login");
+	}
 
 	return (
 		<div className="navbar">
@@ -36,7 +55,22 @@ function Navbar() {
 					</a>
 				) : (
 					<div className="navbar_github_container">
-						<span className="navbar_github_name">{user?.name}</span>
+						<span
+							className="navbar_github_name"
+							onClick={() => updatePopupOpen(!popupOpen)}>
+							<div
+								className="user_popup_container"
+								id="user_popup">
+								<div className="user_popup_content">
+									<button
+										className="danger"
+										onClick={() => logout()}>
+										Logout
+									</button>
+								</div>
+							</div>
+							{user?.name}
+						</span>
 						<a className="navbar_github_link" href={user?.url}>
 							<img
 								className="navbar_github_avatar"

@@ -318,9 +318,12 @@ button.active {
 	justify-content: center;
 }
 .navbar_github_name {
+	display: flex;
+	align-items: center;
 	color: var(--text4);
 	font-size: 1.25rem;
 	cursor: pointer;
+	user-select: none;
 }
 .navbar_github_link {
 	padding: 0;
@@ -438,6 +441,24 @@ ul > li {
 }
 .searchInput:hover {
 	box-shadow: 0 5px 10px 2px rgba(15, 17, 21, 0.5);
+}
+.user_popup_container {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+.user_popup_content {
+	/* position: relative; */
+	/* background-color: var(--primary); */
+	/* border-radius: 0.5rem; */
+	/* padding: 0.5rem; */
+	margin-right: 0.2rem;
+}
+.user_popup_content > button {
+	font-size: 1rem;
+	margin: 0;
+	padding: 0.5rem;
+	margin-right: 1rem;
 }
 @media screen and (max-width: 800px) {
 	.searchInput {
